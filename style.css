@@ -1,0 +1,172 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(45deg, #1d1d1d, #333);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    width: 320px;
+    height: 320px;
+    margin-top: 10px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    width: 100px;
+    height: 100px;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+.winning-cell {
+    background: rgba(0, 255, 0, 0.7);
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); }
+    to { box-shadow: 0 0 20px rgba(0, 255, 0, 1); }
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 90%;
+    max-width: 200px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+#gameOverScreen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    width: 90%;
+    max-width: 300px;
+}
+
+#gameOverScreen p {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#playAgain {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #28a745;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#playAgain:hover {
+    background: #218838;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .board {
+        width: 280px;
+        height: 280px;
+    }
+
+    .cell {
+        font-size: 2em;
+        width: 90px;
+        height: 90px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #gameOverScreen {
+        width: 80%;
+        max-width: 250px;
+        padding: 15px;
+    }
+
+    #gameOverScreen p {
+        font-size: 1.2em;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .board {
+        width: 300px;
+        height: 300px;
+    }
+
+    .cell {
+        font-size: 2.2em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .board {
+        max-width: 500px;
+        max-height: 500px;
+    }
+}
